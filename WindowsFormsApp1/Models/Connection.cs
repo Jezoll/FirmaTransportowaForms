@@ -24,7 +24,9 @@ namespace WindowsFormsApp1.Models
         }
         private string GetConnectionString()
         {
-            return "Server=DESKTOP-MS2A1CD;Database=Firma_Transportowa;Trusted_Connection=true";
+            string MachineName = Environment.MachineName;
+            return "Server="+MachineName+";Database=Firma_Transportowa;Trusted_Connection=true";
+ 
         }
         
 

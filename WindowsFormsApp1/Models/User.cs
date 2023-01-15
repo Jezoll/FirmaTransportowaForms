@@ -42,7 +42,7 @@ namespace WindowsFormsApp1.Models
             
 
         }
-        public void AddNewUser()
+        public void AddNewUser(string login, string password)
         {
             Connection conn = new Connection();
 
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1.Models
                 Environment.MachineName.ToString();
                 conn.Connect();
                 string queryTest;
-                queryTest = String.Format("INSERT INTO dbo.users (login, password, active, lastActivity) VALUES ('{0}', '{1}','{2}', '{3}')", textBox1.Text, textBox2.Text, 1, DateTime.Now);
+                queryTest = String.Format("INSERT INTO dbo.users (login, password, active, lastActivity) VALUES ('{0}', '{1}','{2}', '{3}')", login, password, 1, DateTime.Now);
                 SqlCommand command = new SqlCommand(queryTest, conn.connection);
 
                 if (command.ExecuteNonQuery() == 1)

@@ -31,33 +31,19 @@ namespace WindowsFormsApp1
             
         }
        
-        private void AddNewUser()
-        {
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Server=DESKTOP-MS2A1CD;Database=Firma_Transportowa;Trusted_Connection=true";
-            using (SqlConnection conn = new SqlConnection(connection.ConnectionString))
-            {
-                Environment.MachineName.ToString();
-                conn.Open();
-                string queryTest;
-                queryTest = String.Format("INSERT INTO dbo.users (login, password, active, lastActivity) VALUES ('{0}', '{1}','{2}', '{3}')", textBox1.Text, textBox2.Text,1,DateTime.Now);
-                SqlCommand command = new SqlCommand(queryTest, conn);
-                
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Dodano użytkownika");
-                }
-                else
-                {
-                    MessageBox.Show("Nie dodano użytkownika");
-                }
-                
-            }
-        }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddNewUser();
+            User user = new User();
+            user.AddNewUser(textBox1.Text, textBox2.Text);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Cargo cargo = new Cargo();
+            cargo.Show();
+
         }
     }
 }
