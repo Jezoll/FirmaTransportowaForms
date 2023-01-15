@@ -26,32 +26,11 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LogIn();
+            User user = new User();
+            user.LogIn(textBox1.Text, textBox2.Text);
+            
         }
-        private void LogIn()
-        {
-            SqlConnection connection = new SqlConnection();
-            CRUDDatabase.Connect();
-            using (SqlConnection conn = connection)
-            {
-                conn.Open();
-                string queryTest;
-                queryTest = String.Format("SELECT * FROM dbo.users WHERE login = '{0}' AND password = '{1}'", textBox1.Text, textBox2.Text);
-                SqlCommand command = new SqlCommand(queryTest, conn);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    MessageBox.Show("Zalogowano");
-                    Form2 form2 = new Form2();
-                    form2.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Niepoprawne dane");
-                }
-            }
-        }
+       
         private void AddNewUser()
         {
             SqlConnection connection = new SqlConnection();

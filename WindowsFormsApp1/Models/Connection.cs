@@ -10,10 +10,10 @@ namespace WindowsFormsApp1.Models
     public class  Connection
     {
 
-        private string connectionString;
-        private SqlConnection connection;
+        
+        public SqlConnection connection;
 
-        private Connection()
+        public Connection()
         {
             connection = new SqlConnection();
         }
@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.Models
         {
             return "Server=DESKTOP-MS2A1CD;Database=Firma_Transportowa;Trusted_Connection=true";
         }
-
+        
 
     }
 }
