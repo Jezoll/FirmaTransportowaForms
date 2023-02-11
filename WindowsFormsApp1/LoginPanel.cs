@@ -12,48 +12,49 @@ using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form3 : Form
+    public partial class LoginPanel : Form
     {
-        public Form3()
+        public LoginPanel()
         {
             InitializeComponent();
             textBox2.PasswordChar = '*';
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             User user = new User();
             if(user.LogIn(textBox1.Text, textBox2.Text) == true)
             {
                 this.Hide();
-                Form4 form4 = new Form4();
+                Menu form4 = new Menu();
                 form4.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Błędne dane!");
             }
-            
         }
-       
-        
-
         private void button3_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user.AddNewUser(textBox1.Text, textBox2.Text);
+            if (user.LogInAsAdmin(textBox1.Text, textBox2.Text) == true)
+            {
+                this.Hide();
+                AdminPanel adminPanel = new AdminPanel();
+                adminPanel.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Błędne dane!");
+            }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            Cargo cargo = new Cargo();
+            CargoPanel cargo = new CargoPanel();
             cargo.Show();
-
         }
     }
 }

@@ -10,10 +10,24 @@ namespace WindowsFormsApp1.Models
 {
     public class User
     {
-        private string login;
-        private string password;
-        private string active;
-        private string lastActivity;
+        public string login { get; set; }
+        public string password{ get; set; }
+        public bool active{ get; set; }
+        public DateTime lastActivity { get; set; }
+        public bool isAdmin { get; set; }
+
+        public User()
+        {
+            
+        }
+        public User(string login, string password, bool active, DateTime lastActivity, bool isAdmin)
+        {
+            this.login = login;
+            this.password = password;
+            this.active = active;
+            this.lastActivity = lastActivity;
+            this.isAdmin = isAdmin;
+        }
 
         public bool LogIn(string login, string password)
         {
@@ -40,7 +54,7 @@ namespace WindowsFormsApp1.Models
             
 
         }
-        public void AddNewUser(string login, string password)
+        public void AddNewUser(string login, string password, bool isAdmin)
         {
             Connection conn = new Connection();
 
@@ -49,7 +63,7 @@ namespace WindowsFormsApp1.Models
                 Environment.MachineName.ToString();
                 conn.Connect();
                 string queryTest;
-                queryTest = String.Format("INSERT INTO dbo.users (login, password, active, lastActivity) VALUES ('{0}', '{1}','{2}', '{3}')", login, password, 1, DateTime.Now);
+                queryTest = String.Format("INSERT INTO dbo.users (login, password, active, lastActivity, isAdmin) VALUES ('{0}', '{1}','{2}', '{3}', '{4}')", login, password, 1, DateTime.Now, isAdmin);
                 SqlCommand command = new SqlCommand(queryTest, conn.connection);
 
                 if (command.ExecuteNonQuery() == 1)
@@ -62,6 +76,62 @@ namespace WindowsFormsApp1.Models
                 }
 
             }
+        }
+        public bool LogInAsAdmin(string login, string password)
+        {
+            Connection connection = new Connection();
+
+            using (connection.connection)
+            {
+                connection.Connect();
+                SqlCommand command = new SqlCommand("SELECT * FROM Users WHERE Login = @Login AND Password = @Password AND isAdmin = @isAdmin", connection.connection);
+                command.Parameters.AddWithValue("@Login", login);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@isAdmin", 1);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    MessageBox.Show("Zalogowano jako administrator");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Niepoprawny login lub hasło");
+                    return false;
+                }
+            }
+        }
+        public List<User> GetAllUsers()
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "SELECT login,password,active,lastActivity,isAdmin FROM Users";
+                using (var reader = command.ExecuteReader())
+                {
+                    List<User> users = new List<User>();
+                    while (reader.Read())
+                    {
+                        users.Add(new User(reader["login"].ToString(), reader["password"].ToString(), Convert.ToBoolean(reader["active"]), Convert.ToDateTime(reader["lastActivity"]), Convert.ToBoolean(reader["isAdmin"])));
+                    }
+                    return users;
+                }
+            }
+            //using (connection.connection)
+            //{
+            //    List<User> users = new List<User>();
+
+            //    SqlCommand command = new SqlCommand("SELECT login,password,active,lastActivity,isAdmin FROM users", connection.connection);
+            //    SqlDataReader reader = command.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+
+            //        users.Add(new User(reader["login"].ToString(), reader["password"].ToString(), Convert.ToBoolean(reader["active"]), Convert.ToDateTime(reader["lastActivity"]), Convert.ToBoolean(reader["isAdmin"])));
+
+            //    }
+            //    return users;
+            //}
         }
     }
 }

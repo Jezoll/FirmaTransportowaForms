@@ -8,7 +8,6 @@ C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsF
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.VisualStudio.Interop.dll
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.dll
@@ -41,8 +40,11 @@ C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFr
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.xml
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form4.resources
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Cargo.resources
-C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AdminPanel.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CargoPanel.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DriversPanel.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddingDriver.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LoginPanel.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Menu.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.DeparturesPanel.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UserAdding.resources

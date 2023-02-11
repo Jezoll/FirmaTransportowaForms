@@ -11,19 +11,22 @@ using WindowsFormsApp1.Models;
 
 namespace WindowsFormsApp1
 {
-    public partial class Cargo : Form
+    public partial class DeparturesPanel : Form
     {
-        public Cargo()
+        public DeparturesPanel()
         {
             InitializeComponent();
-            CargoClass cargo = new CargoClass();
-            dataGridView1.DataSource = cargo.GetAllCargo();
+            RenderDepartures();
         }
-        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void RenderDepartures()
+        {
+            Departures departure = new Departures();
+            dataGridView1.DataSource = departure.GetTrasy();
         }
     }
 }

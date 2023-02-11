@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form4 : Form
+    public partial class Menu : Form
     {
-        public Form4()
+        public Menu()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form5 form5 = new Form5();
+            DeparturesPanel form5 = new DeparturesPanel();
             form5.ShowDialog();
         }
 
@@ -32,8 +32,15 @@ namespace WindowsFormsApp1
         private void buttonWyjdz_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form3 form3 = new Form3();
+            LoginPanel form3 = new LoginPanel();
             form3.ShowDialog();
+        }
+
+        private void Ludzie_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DriversPanel form1 = new DriversPanel();
+            form1.ShowDialog();
         }
     }
 }

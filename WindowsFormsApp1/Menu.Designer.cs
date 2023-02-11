@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form4
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonWyjdz = new System.Windows.Forms.Button();
+            this.Ludzie = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -55,7 +56,7 @@
             // 
             // buttonWyjdz
             // 
-            this.buttonWyjdz.Location = new System.Drawing.Point(291, 193);
+            this.buttonWyjdz.Location = new System.Drawing.Point(298, 205);
             this.buttonWyjdz.Name = "buttonWyjdz";
             this.buttonWyjdz.Size = new System.Drawing.Size(151, 23);
             this.buttonWyjdz.TabIndex = 2;
@@ -63,11 +64,22 @@
             this.buttonWyjdz.UseVisualStyleBackColor = true;
             this.buttonWyjdz.Click += new System.EventHandler(this.buttonWyjdz_Click);
             // 
+            // Ludzie
+            // 
+            this.Ludzie.Location = new System.Drawing.Point(113, 124);
+            this.Ludzie.Name = "Ludzie";
+            this.Ludzie.Size = new System.Drawing.Size(179, 23);
+            this.Ludzie.TabIndex = 3;
+            this.Ludzie.Text = "Zarządzanie zasobami ludzkimi";
+            this.Ludzie.UseVisualStyleBackColor = true;
+            this.Ludzie.Click += new System.EventHandler(this.Ludzie_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Ludzie);
             this.Controls.Add(this.buttonWyjdz);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonWyjdz;
+        private System.Windows.Forms.Button Ludzie;
     }
 }

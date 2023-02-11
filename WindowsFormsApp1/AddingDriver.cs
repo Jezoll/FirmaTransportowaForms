@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form2 : Form
+    public partial class AddingDriver : Form
     {
-        public Form2()
+        public AddingDriver()
         {
             InitializeComponent();
         }
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            DriversPanel form1 = new DriversPanel();
             form1.Show();
             this.Hide();
         }

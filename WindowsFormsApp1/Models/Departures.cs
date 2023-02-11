@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.Models
             {
                 List<Departures> departures = new List<Departures>();
 
-                SqlCommand command = new SqlCommand("SELECT * FROM Trasy", connection.connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM Trasa", connection.connection);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
