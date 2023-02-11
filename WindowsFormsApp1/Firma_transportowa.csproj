@@ -87,6 +87,12 @@
     <Compile Include="DeparturesPanel.Designer.cs">
       <DependentUpon>DeparturesPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateUser.Designer.cs">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UpdateUser.resx">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserAdding.resx">
       <DependentUpon>UserAdding.cs</DependentUpon>
     </EmbeddedResource>

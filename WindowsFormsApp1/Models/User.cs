@@ -133,5 +133,44 @@ namespace WindowsFormsApp1.Models
             //    return users;
             //}
         }
+        public void DeleteUser(string login)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM Users WHERE login = @login";
+                command.Parameters.AddWithValue("@login", login);
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Usunięto użytkownika");
+                }
+                else
+                {
+                    MessageBox.Show("Nie usunięto użytkownika");
+                }
+            }
+        }
+        public void UpdateUser(string login, string password, bool active, bool isAdmin)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE Users SET password = @password, active = @active, isAdmin = @isAdmin WHERE login = @login";
+                command.Parameters.AddWithValue("@login", login);
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@active", active);
+                command.Parameters.AddWithValue("@isAdmin", isAdmin);
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Zaktualizowano użytkownika");
+                }
+                else
+                {
+                    MessageBox.Show("Nie zaktualizowano użytkownika");
+                }
+            }
+        }
     }
 }

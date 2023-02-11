@@ -17,6 +17,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             LoadEmployees();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.MultiSelect = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,6 +37,19 @@ namespace WindowsFormsApp1
             this.Close();
             UserAdding form2 = new UserAdding();
             form2.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string login = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            User user = new User();
+            user.DeleteUser(login);
+            LoadEmployees();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

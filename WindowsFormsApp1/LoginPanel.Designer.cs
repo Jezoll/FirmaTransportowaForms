@@ -77,7 +77,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(210, 23);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Zaloguj jako admin";
+            this.button3.Text = "Zaloguj do panelu admina";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -99,7 +99,7 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Hasło";
             // 
-            // Form3
+            // LoginPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +111,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form3";
+            this.Name = "LoginPanel";
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();
