@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
 
         private void button_Dodaj_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             UserAdding form2 = new UserAdding();
             form2.ShowDialog();
         }
@@ -49,7 +49,13 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string login = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string password = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            bool isAdmin = (bool)dataGridView1.SelectedRows[0].Cells[4].Value;
+            bool isActive = (bool)dataGridView1.SelectedRows[0].Cells[2].Value;
+            this.Hide();
+            UpdateUser form3 = new UpdateUser(login, password, isAdmin, isActive);
+            form3.ShowDialog();
         }
     }
 }

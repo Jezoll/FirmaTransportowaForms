@@ -56,5 +56,10 @@ namespace WindowsFormsApp1
             CargoPanel cargo = new CargoPanel();
             cargo.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

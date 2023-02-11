@@ -151,7 +151,7 @@ namespace WindowsFormsApp1.Models
                 }
             }
         }
-        public void UpdateUser(string login, string password, bool active, bool isAdmin)
+        public bool UpdateUser(string login, string password, bool active, bool isAdmin)
         {
             Connection connection = new Connection();
             connection.Connect();
@@ -165,10 +165,12 @@ namespace WindowsFormsApp1.Models
                 if (command.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Zaktualizowano użytkownika");
+                    return true;
                 }
                 else
                 {
                     MessageBox.Show("Nie zaktualizowano użytkownika");
+                    return false;
                 }
             }
         }
