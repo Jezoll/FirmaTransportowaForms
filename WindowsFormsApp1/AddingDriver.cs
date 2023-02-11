@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using WindowsFormsApp1.Models;
 namespace WindowsFormsApp1
 {
     public partial class AddingDriver : Form
@@ -68,9 +68,27 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             Driver driver = new Driver();
-            DateTime data = DateTime.Parse(textBox3.Text);
-            driver.AddNewDriver(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text);
-        }
+            
+            //driver.AddNewDriver(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text);
+            Validation validation = new Validation();
+
+            DateTime data = DateTime.TryParse(textBox3.Text, out data) ? data : DateTime.Now;
+            if (data == null)
+            {
+                data = DateTime.MinValue;
+            }
+            if (!validation.ValidatePerson(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text))
+                {
+                    MessageBox.Show("Walidacja nie powiodła się");
+                }
+                else
+                {
+                    driver.AddNewDriver(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text);
+                }
+
+            }
+            
+        
 
         private void button2_Click(object sender, EventArgs e)
         {

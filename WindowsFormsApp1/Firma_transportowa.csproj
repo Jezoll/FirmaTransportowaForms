@@ -87,6 +87,7 @@
     <Compile Include="DeparturesPanel.Designer.cs">
       <DependentUpon>DeparturesPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Validation.cs" />
     <Compile Include="UpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
