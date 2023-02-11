@@ -10,7 +10,7 @@ namespace WindowsFormsApp1.Models
 {
     public class Validation
     {
-        public bool ValidatePerson(string Imie, string Nazwisko, DateTime data_ur, string pesel, string kod_pocztowy, string miasto, string ulica, string numer_domu, string numer_mieszkania, string telefon, string email)
+        public bool ValidateDriver(string Imie, string Nazwisko, DateTime data_ur, string pesel, string kod_pocztowy, string miasto, string ulica, string numer_domu, string numer_mieszkania, string telefon, string email)
         {
             if (!ValidateImie(Imie))
             {
@@ -75,6 +75,28 @@ namespace WindowsFormsApp1.Models
             if (!ValidateEmail(email))
             {
                 MessageBox.Show("Email jest wymagany.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateCredentials(string login, string password)
+        {
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                return false;
+            }
+
+            
+            if (!Regex.IsMatch(login, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            {
+                return false;
+            }
+
+            
+            if (password.Length < 8 || !Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$"))
+            {
                 return false;
             }
 

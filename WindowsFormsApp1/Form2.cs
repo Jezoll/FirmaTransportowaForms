@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             try
             {
                 DateTime data = DateTime.Parse(textBox3.Text);
-                if (!validation.ValidatePerson(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text))
+                if (!validation.ValidateDriver(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text))
                 {
                     MessageBox.Show("Walidacja nie powiodła się");
                 }
