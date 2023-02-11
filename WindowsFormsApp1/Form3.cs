@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         public Form3()
         {
             InitializeComponent();
+            textBox2.PasswordChar = '*';
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -27,7 +28,16 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             User user = new User();
-            user.LogIn(textBox1.Text, textBox2.Text);
+            if(user.LogIn(textBox1.Text, textBox2.Text) == true)
+            {
+                this.Hide();
+                Form4 form4 = new Form4();
+                form4.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Błędne dane!");
+            }
             
         }
        

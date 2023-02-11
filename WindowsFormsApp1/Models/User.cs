@@ -29,8 +29,6 @@ namespace WindowsFormsApp1.Models
                 if (reader.Read())
                 {
                     MessageBox.Show("Zalogowano");
-                    Form1 form1 = new Form1();
-                    form1.Show();
                     return true;
                 }
                 else

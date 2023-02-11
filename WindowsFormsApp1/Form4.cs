@@ -16,5 +16,24 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form5 form5 = new Form5();
+            form5.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWyjdz_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+        }
     }
 }
