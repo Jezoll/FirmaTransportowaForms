@@ -26,16 +26,12 @@ namespace WindowsFormsApp1
         private void RenderDepartures()
         {
             List<Departures> departure = new List<Departures>();
-            
-            List<DeparturesDTO> dto = new List<DeparturesDTO>();
+
             Departures dep = new Departures();
             departure = dep.GetTrasy();
-            foreach(var item in departure)
-            {
-                DeparturesDTO depDTO = new DeparturesDTO(item.Id_trasy, item.Miejsce_załadunku, item.Miejsca_rozładunku, item.Długość_trasy, item.Id_klient, item.Id_kierowcy, item.Id_pojazdu, item.Id_ładunku, item.Id_przyczepy, item.Wykonana);
-                dto.Add(depDTO);
-            }
-            dataGridView1.DataSource = dto;
+
+            dataGridView1.DataSource = departure;
+           
 
         }
     }
