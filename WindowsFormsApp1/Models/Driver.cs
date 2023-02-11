@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Models;
 
+
 namespace WindowsFormsApp1
 {
     public class Driver
@@ -26,10 +27,12 @@ namespace WindowsFormsApp1
         public string Numer_mieszkania { get; set; }
         public string Telefon { get; set; }
         public string Email { get; set; }
+        private Validation validation;
 
         public Driver()
         {
-            
+            validation = new Validation();
+
         }
 
         public Driver(string imie, string nazwisko, DateTime data_ur, string pesel, string kod_pocztowy, string miasto, string ulica, string numer_domu, string numer_mieszkania, string telefon, string email)
@@ -153,6 +156,8 @@ namespace WindowsFormsApp1
                 
             }
         }
+
+        
     }
     
 }

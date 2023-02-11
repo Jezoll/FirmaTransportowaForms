@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp1.Models
+{
+    public interface IValidation
+    {
+        bool ValidateImie(string imie);
+        bool ValidateNazwisko(string nazwisko);
+        bool ValidatePerson(string Imie, string Nazwisko);
+    }
+}

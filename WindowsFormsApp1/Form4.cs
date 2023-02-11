@@ -35,5 +35,18 @@ namespace WindowsFormsApp1
             Form3 form3 = new Form3();
             form3.ShowDialog();
         }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
+
+        }
     }
 }

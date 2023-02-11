@@ -46,6 +46,7 @@ namespace WindowsFormsApp1.Models
 
             using (conn.connection)
             {
+                string MachineName = Environment.MachineName + "\\SQLEXPRESS";
                 Environment.MachineName.ToString();
                 conn.Connect();
                 string queryTest;

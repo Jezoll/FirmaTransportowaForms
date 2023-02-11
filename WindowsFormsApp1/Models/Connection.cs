@@ -24,7 +24,7 @@ namespace WindowsFormsApp1.Models
         }
         private string GetConnectionString()
         {
-            string MachineName = Environment.MachineName;
+            string MachineName = Environment.MachineName + "\\SQLEXPRESS";
             return "Server="+MachineName+";Database=Firma_Transportowa;Trusted_Connection=true";
  
         }

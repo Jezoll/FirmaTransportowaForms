@@ -55,5 +55,10 @@ namespace WindowsFormsApp1
             cargo.Show();
 
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
