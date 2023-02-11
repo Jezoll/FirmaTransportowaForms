@@ -19,14 +19,14 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            DeparturesPanel form5 = new DeparturesPanel();
-            form5.ShowDialog();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            DeparturesPanel form5 = new DeparturesPanel();
+            form5.ShowDialog();
         }
 
         private void buttonWyjdz_Click(object sender, EventArgs e)

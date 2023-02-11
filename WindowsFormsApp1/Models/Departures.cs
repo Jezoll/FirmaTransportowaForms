@@ -9,47 +9,57 @@ namespace WindowsFormsApp1.Models
 {
     public class Departures
     {
-        private int id_trasy;
-        public string miejsce_załadunku;
-        public string miejsca_rozładunku;
-        public int długość_trasy;
-        private int id_klient;
-        private int id_kierowcy;
-        private int id_pojazdu;
-        private int id_ładunku;
-        private int id_przyczepy;
-        public bool wykonana;
+        public int Id_trasy { get; set; }
+        public string Miejsce_załadunku { get; set; }
+        public string Miejsca_rozładunku { get; set; }
+        public int Długość_trasy { get; set; }
+        public int Id_klient { get; set; }
+        public int Id_kierowcy { get; set; }
+        public int Id_pojazdu { get; set; }
+        public int Id_ładunku { get; set; }
+        public int Id_przyczepy { get; set; }
+        public bool Wykonana { get; set; }
+        public List<Departures> departuresList = new List<Departures>();
+        public Departures()
+        {
+
+        }
         
-        public List<Departures> GetTrasy(){
-            
+        public Departures(int id_trasy, string miejsce_załadunku, string miejsca_rozładunku, int długość_trasy, int id_klient, int id_kierowcy, int id_pojazdu, int id_ładunku, int id_przyczepy, bool wykonana)
+        {
+            Id_trasy = id_trasy;
+            Miejsce_załadunku = miejsce_załadunku;
+            Miejsca_rozładunku = miejsca_rozładunku;
+            Długość_trasy = długość_trasy;
+            Id_klient = id_klient;
+            Id_kierowcy = id_kierowcy;
+            Id_pojazdu = id_pojazdu;
+            Id_ładunku = id_ładunku;
+            Id_przyczepy = id_przyczepy;
+            Wykonana = wykonana;
+
+        }
+        public List<Departures> GetTrasy()
+        {
+
             Connection connection = new Connection();
             connection.Connect();
-
-            using (connection.connection)
+            using (var command = connection.connection.CreateCommand())
             {
-                List<Departures> departures = new List<Departures>();
-
-                SqlCommand command = new SqlCommand("SELECT * FROM Trasa", connection.connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Departures departure = new Departures();
-                    departure.id_trasy = reader.GetInt32(0);
-                    departure.miejsce_załadunku = reader.GetString(1);
-                    departure.miejsca_rozładunku = reader.GetString(2);
-                    departure.długość_trasy = reader.GetInt32(3);
-                    departure.id_klient = reader.GetInt32(4);
-                    departure.id_kierowcy = reader.GetInt32(5);
-                    departure.id_pojazdu = reader.GetInt32(6);
-                    departure.id_ładunku = reader.GetInt32(7);
-                    departure.id_przyczepy = reader.GetInt32(8);
-                    departure.wykonana = reader.GetBoolean(9);
-                    departures.Add(departure);
-
-                }
-                return departures;
+                    command.CommandText = "SELECT * FROM Trasa";
+                    List<Departures> departures = new List<Departures>();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            departures.Add(new Departures((int)reader["id_trasy"], reader["miejsce_załadunku"].ToString(), reader["miejsca_rozładunku"].ToString(), (int)reader["długość_trasy"], (int)reader["id_klient"], (int)reader["id_kierowcy"], (int)reader["id_pojazdu"], (int)reader["id_ładunku"], (int)reader["id_przyczepy"], (bool)reader["wykonana"])) ;
+                        }
+                        return departures;
+                    }
+                   
+                
             }
-            
+
         }
-        }
+    }   
 }
