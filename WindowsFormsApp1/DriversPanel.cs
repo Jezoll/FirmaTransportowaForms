@@ -19,6 +19,8 @@ namespace WindowsFormsApp1
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ReadOnly = true;
             dataGridView1.MultiSelect = false;
+            dataGridView1.Height = 400;
+            dataGridView1.Width = 1000;
             LoadEmployees();
         }
         private void LoadEmployees()
@@ -53,6 +55,13 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void DriversPanel_Load(object sender, EventArgs e)
+        {
+            DriversPanel form = new DriversPanel();
+            form.SizeGripStyle = new SizeGripStyle();
 
         }
     }

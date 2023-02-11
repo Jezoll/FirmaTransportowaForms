@@ -39,7 +39,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 93);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(630, 345);
             this.dataGridView1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(648, 21);
+            this.button1.Location = new System.Drawing.Point(14, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 31);
             this.button1.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(649, 75);
+            this.button2.Location = new System.Drawing.Point(504, 32);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 29);
             this.button2.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(650, 123);
+            this.button3.Location = new System.Drawing.Point(196, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 30);
             this.button3.TabIndex = 4;
@@ -84,7 +84,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form1
+            // DriversPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,8 +94,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "DriversPanel";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.DriversPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
