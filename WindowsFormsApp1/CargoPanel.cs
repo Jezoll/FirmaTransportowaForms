@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         public CargoPanel()
         {
             InitializeComponent();
-            CargoClass cargo = new CargoClass();
+            Cargo cargo = new Cargo();
             dataGridView1.DataSource = cargo.GetAllCargo();
         }
         
@@ -24,6 +24,13 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu form1 = new Menu();
+            form1.ShowDialog();
         }
     }
 }

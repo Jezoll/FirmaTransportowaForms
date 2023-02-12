@@ -34,5 +34,12 @@ namespace WindowsFormsApp1
            
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu form1 = new Menu();
+            form1.ShowDialog();
+        }
     }
 }

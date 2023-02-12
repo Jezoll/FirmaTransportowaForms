@@ -12,9 +12,9 @@ namespace WindowsFormsApp1.Models
         { get; set; }
         private decimal składka
           { get; set; }
-        private DateTime data_rozpoczęcia_ubezpieczenia;
-        private DateTime data_zakończenia_ubezpieczenia;
-        private bool oplacone;
+        private DateTime data_rozpoczęcia_ubezpieczenia { get; set; }
+        private DateTime data_zakończenia_ubezpieczenia { get; set; }
+        private bool oplacone { get; set; }
         
         public void AddInsurance()
         {

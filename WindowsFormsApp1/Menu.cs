@@ -24,23 +24,30 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             DeparturesPanel form5 = new DeparturesPanel();
             form5.ShowDialog();
         }
 
         private void buttonWyjdz_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             LoginPanel form3 = new LoginPanel();
             form3.ShowDialog();
         }
 
         private void Ludzie_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             DriversPanel form1 = new DriversPanel();
             form1.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CargoPanel form2 = new CargoPanel();
+            form2.ShowDialog();
         }
     }
 }

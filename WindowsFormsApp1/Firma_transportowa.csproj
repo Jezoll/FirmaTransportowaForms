@@ -100,7 +100,7 @@
     <Compile Include="UserAdding.Designer.cs">
       <DependentUpon>UserAdding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\CargoClass.cs" />
+    <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Departures.cs" />
