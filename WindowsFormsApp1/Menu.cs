@@ -19,7 +19,9 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            VehiclesPrzyczepaZestawyForm form1 = new VehiclesPrzyczepaZestawyForm();
+            form1.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
