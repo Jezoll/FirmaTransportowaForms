@@ -20,7 +20,8 @@ namespace WindowsFormsApp1.Models
         public string nr_polisy { get; set; }
         public int id_przyczepy { get; set; }
         public bool w_trasie { get; set; }
-        
+        public string przyczepa { get; set; }
+
         public Pojazd()
         {
             
@@ -39,6 +40,16 @@ namespace WindowsFormsApp1.Models
             this.nr_polisy = nr_polisy;
             this.id_przyczepy = id_przyczepy;
             this.w_trasie = w_trasie;
+            Connection connection = new Connection();
+            SqlConnection sqlConnection = connection.connection;
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                this.przyczepa = sqlDataReader["nr_rejestracyjny"].ToString();
+            }
         }
 
         public List<Pojazd> GetAllPojazdy()

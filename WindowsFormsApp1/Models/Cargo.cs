@@ -9,7 +9,7 @@ namespace WindowsFormsApp1.Models
 {
     public class Cargo
     {
-        private int id_ładunku { get; set; }
+        public int id_ładunku { get; set; }
         public int masa_ladunku { get; set; }
         public int dlugosc { get; set; }
         public string rodzaj { get; set; }
