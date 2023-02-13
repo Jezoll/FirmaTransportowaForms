@@ -16,9 +16,13 @@ namespace WindowsFormsApp1
         public AddingDriver()
         {
             InitializeComponent();
+            SetFormBackgroundImage(@"C:\Users\Dawid\source\repos\WindowsFormsApp1\tlo.jpg");
         }
-        
-
+        private void SetFormBackgroundImage(string imagePath)
+        {
+            this.BackgroundImage = Image.FromFile(imagePath);
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";

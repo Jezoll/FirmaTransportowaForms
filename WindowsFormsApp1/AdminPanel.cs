@@ -17,13 +17,18 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             LoadEmployees();
+            SetFormBackgroundImage(@"C:\Users\Dawid\source\repos\WindowsFormsApp1\tlo.jpg");
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ReadOnly = true;
             dataGridView1.MultiSelect = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
         }
-
+        private void SetFormBackgroundImage(string imagePath)
+        {
+            this.BackgroundImage = Image.FromFile(imagePath);
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

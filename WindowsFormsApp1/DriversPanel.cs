@@ -16,9 +16,12 @@ namespace WindowsFormsApp1
         public DriversPanel()
         {
             InitializeComponent();
+            
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ReadOnly = true;
             dataGridView1.MultiSelect = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
             LoadEmployees();
         }
         private void LoadEmployees()

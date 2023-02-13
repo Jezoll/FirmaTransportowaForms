@@ -8,7 +8,7 @@ namespace WindowsFormsApp1.Models
 {
     public class Pojazd
     {
-        private int id_pojazdu { get; set; }
+        public int id_pojazdu { get; set; }
         public string marka { get; set; }
         public string model { get; set; }
         public string nr_rejestracyjny { get; set; }
@@ -41,9 +41,9 @@ namespace WindowsFormsApp1.Models
             this.id_przyczepy = id_przyczepy;
             this.w_trasie = w_trasie;
             Connection connection = new Connection();
-            SqlConnection sqlConnection = connection.connection;
-            sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", sqlConnection);
+            
+            connection.Connect();
+            SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", connection.connection);
             sqlCommand.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             while (sqlDataReader.Read())
@@ -65,6 +65,20 @@ namespace WindowsFormsApp1.Models
                 pojazdList.Add(pojazd);
             }
             return pojazdList;
+        }
+        public Pojazd GetPojazdByID(int id_pojazdu)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            SqlCommand command = new SqlCommand("SELECT * FROM Pojazd WHERE id_pojazdu = @id_pojazdu", connection.connection);
+            command.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
+            SqlDataReader reader = command.ExecuteReader();
+            Pojazd pojazd = new Pojazd();
+            while (reader.Read())
+            {
+                pojazd = new Pojazd(Convert.ToInt32(reader["id_pojazdu"]), reader["marka"].ToString(), reader["model"].ToString(), reader["nr_rejestracyjny"].ToString(), reader["nr_vin"].ToString(), Convert.ToDateTime(reader["rok_produkcji"]), Convert.ToInt32(reader["przebieg"]), reader["rodzaj_pojazdu"].ToString(), reader["emisja_spalin"].ToString(), reader["nr_polisy"].ToString(), Convert.ToInt32(reader["id_przyczepy"]), Convert.ToBoolean(reader["w_trasie"]));
+            }
+            return pojazd;
         }
     }
 }

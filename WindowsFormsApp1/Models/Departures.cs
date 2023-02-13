@@ -90,7 +90,7 @@ namespace WindowsFormsApp1.Models
         
     
 
-    public List<Departures> GetTrasy()
+        public List<Departures> GetTrasy()
         {
 
             Connection connection = new Connection();
@@ -107,8 +107,6 @@ namespace WindowsFormsApp1.Models
                         }
                         return departures;
                     }
-                   
-                
             }
 
         }

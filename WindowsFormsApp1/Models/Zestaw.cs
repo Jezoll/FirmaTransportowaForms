@@ -62,5 +62,25 @@ namespace WindowsFormsApp1.Models
             }
             return zestawy;
         }
+        public bool AddZestaw(int id_pojazdu, int id_przyczepy)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO Zestaw(id_pojazdu, id_przyczepy) VALUES(@id_pojazdu, @id_przyczepy)";
+                command.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
+                command.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
+                if (command.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
     }
 }
