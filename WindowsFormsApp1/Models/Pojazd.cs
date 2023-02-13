@@ -49,7 +49,6 @@ namespace WindowsFormsApp1.Models
             {
                 id_przyczepy = id_przyczepy;
                 Connection connection = new Connection();
-
                 connection.Connect();
                 SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", connection.connection);
                 sqlCommand.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);

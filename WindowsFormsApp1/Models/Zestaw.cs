@@ -11,8 +11,10 @@ namespace WindowsFormsApp1.Models
         private int id_zestawu { get; set; }
         private int id_pojazdu { get; set; }
         private int id_przyczepy { get; set; }
+        private int id_zestaw { get; set; }
         public string pojazd { get; set; }
         public string przyczepa { get; set; }
+        public string zestaw { get; set; }
         public Zestaw()
         {
         }
