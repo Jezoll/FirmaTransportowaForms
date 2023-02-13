@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
             }
             if (!validation.ValidatePerson(textBox1.Text, textBox2.Text, data, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text, textBox9.Text, textBox10.Text, textBox11.Text))
                 {
-                    MessageBox.Show("Walidacja nie powiodła się");
+                    
                 }
                 else
                 {
@@ -95,6 +95,11 @@ namespace WindowsFormsApp1
             DriversPanel form1 = new DriversPanel();
             form1.Show();
             this.Hide();
+        }
+
+        private void AddingDriver_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

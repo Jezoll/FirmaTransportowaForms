@@ -267,7 +267,7 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Mail";
             // 
-            // Form2
+            // AddingDriver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -297,8 +297,9 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form2";
+            this.Name = "AddingDriver";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.AddingDriver_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

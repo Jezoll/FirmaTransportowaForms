@@ -26,7 +26,8 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             User user = new User();
-            if(user.LogIn(textBox1.Text, textBox2.Text) == true)
+            Validation validation = new Validation();
+            if(validation.ValidateUser(textBox1.Text, textBox2.Text) == true)
             {
                 this.Hide();
                 Menu form4 = new Menu();
@@ -58,6 +59,11 @@ namespace WindowsFormsApp1
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPanel_Load(object sender, EventArgs e)
         {
 
         }

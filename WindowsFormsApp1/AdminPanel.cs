@@ -57,5 +57,10 @@ namespace WindowsFormsApp1
             UpdateUser form3 = new UpdateUser(login, password, isAdmin, isActive);
             form3.ShowDialog();
         }
+
+        private void AdminPanel_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

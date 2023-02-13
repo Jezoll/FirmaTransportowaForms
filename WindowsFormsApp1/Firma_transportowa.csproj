@@ -69,6 +69,12 @@
     <Compile Include="CargoPanel.Designer.cs">
       <DependentUpon>CargoPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Departures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Departures.Designer.cs">
+      <DependentUpon>Departures.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +86,6 @@
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeparturesPanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeparturesPanel.Designer.cs">
-      <DependentUpon>DeparturesPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Validation.cs" />
     <Compile Include="UpdateUser.cs">
@@ -127,6 +127,9 @@
     <EmbeddedResource Include="CargoPanel.resx">
       <DependentUpon>CargoPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Departures.resx">
+      <DependentUpon>Departures.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriversPanel.resx">
       <DependentUpon>DriversPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeparturesPanel.resx">
-      <DependentUpon>DeparturesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

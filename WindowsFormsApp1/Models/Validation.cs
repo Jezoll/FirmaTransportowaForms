@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Models
@@ -102,6 +103,56 @@ namespace WindowsFormsApp1.Models
             }
             
         }
+        public bool ValidateUser(string login, string password)
+        {
+            string ErrorMSG = "";
+            int i = 0;
+            if (!ValidateLogin(login))
+            {
+                i++;
+                ErrorMSG += "Podany login lub hasło jest niepoprawne.";
+
+            }
+
+            if (!ValidatePassword(password))
+            {
+                i++;
+                ErrorMSG += "Podany login lub hasło jest niepoprawne.";
+
+            }
+            if (i > 0)
+            {
+                MessageBox.Show(ErrorMSG);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+        
+       public bool ValidateLogin(string login)
+        {
+
+            if (string.IsNullOrWhiteSpace(login))
+            {
+                return false;
+            }
+            return true;
+        }
+            
+        public bool ValidatePassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 3)
+            {
+                return false;
+            }
+
+            return true;
+        }
+           
+        
 
         public bool ValidateImie(string imie)
         {

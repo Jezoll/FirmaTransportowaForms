@@ -38,17 +38,20 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 15);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(634, 402);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(845, 495);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button_Dodaj
             // 
-            this.button_Dodaj.Location = new System.Drawing.Point(695, 28);
+            this.button_Dodaj.Location = new System.Drawing.Point(927, 34);
+            this.button_Dodaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button_Dodaj.Name = "button_Dodaj";
-            this.button_Dodaj.Size = new System.Drawing.Size(75, 23);
+            this.button_Dodaj.Size = new System.Drawing.Size(100, 28);
             this.button_Dodaj.TabIndex = 1;
             this.button_Dodaj.Text = "Dodaj";
             this.button_Dodaj.UseVisualStyleBackColor = true;
@@ -56,9 +59,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(695, 77);
+            this.button1.Location = new System.Drawing.Point(927, 95);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "Usuń";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,9 +70,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(695, 126);
+            this.button2.Location = new System.Drawing.Point(927, 155);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 3;
             this.button2.Text = "Zaaktualizuj";
             this.button2.UseVisualStyleBackColor = true;
@@ -76,15 +81,17 @@
             // 
             // AdminPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_Dodaj);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminPanel";
             this.Text = "AdminPanel";
+            this.Load += new System.EventHandler(this.AdminPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
