@@ -80,5 +80,19 @@ namespace WindowsFormsApp1.Models
             }
             return pojazd;
         }
+        public List<Pojazd> GetAllPojazdyWolne()
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            SqlCommand command = new SqlCommand("SELECT * FROM Pojazd WHERE id_przyczepy IS NULL", connection.connection);
+            SqlDataReader reader = command.ExecuteReader();
+            List<Pojazd> pojazdList = new List<Pojazd>();
+            while (reader.Read())
+            {
+                Pojazd pojazd = new Pojazd(Convert.ToInt32(reader["id_pojazdu"]), reader["marka"].ToString(), reader["model"].ToString(), reader["nr_rejestracyjny"].ToString(), reader["nr_vin"].ToString(), Convert.ToDateTime(reader["rok_produkcji"]), Convert.ToInt32(reader["przebieg"]), reader["rodzaj_pojazdu"].ToString(), reader["emisja_spalin"].ToString(), reader["nr_polisy"].ToString(), Convert.ToInt32(reader["id_przyczepy"]), Convert.ToBoolean(reader["w_trasie"]));
+                pojazdList.Add(pojazd);
+            }
+            return pojazdList;
+        }
     }
 }

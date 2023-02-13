@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
             List<Pojazd> vehicles = new List<Pojazd>();
 
             Pojazd vehicle = new Pojazd();
-            vehicles = vehicle.GetAllPojazdy();
+            vehicles = vehicle.GetAllPojazdyWolne();
 
             dataGridView1.DataSource = vehicles;
         }
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
             List<Przyczepa> przyczepy = new List<Przyczepa>();
 
             Przyczepa przyczepa = new Przyczepa();
-            przyczepy = przyczepa.GetAllPrzyczepy();
+            przyczepy = przyczepa.GetAllPrzyczepyWolne();
 
             dataGridView2.DataSource = przyczepy;
         }
@@ -106,6 +106,8 @@ namespace WindowsFormsApp1
             column4.HeaderText = "id_przy";
             column4.Name = "id_przy";
             dataGridView3.Columns.Add(column4);
+            dataGridView3.Columns[2].Visible = false;
+            dataGridView3.Columns[3].Visible = false;
 
 
         }

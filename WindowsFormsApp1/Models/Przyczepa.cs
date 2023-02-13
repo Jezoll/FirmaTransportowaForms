@@ -72,5 +72,19 @@ namespace WindowsFormsApp1.Models
             }
             return przyczepa;
         }
+        public List<Przyczepa> GetAllPrzyczepyWolne()
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Przyczepa WHERE id_pojazdu IS NULL", connection.connection);
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            List<Przyczepa> przyczepaList = new List<Przyczepa>();
+            while (sqlDataReader.Read())
+            {
+                Przyczepa przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(), Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]), Convert.ToInt32(sqlDataReader["długość"]), Convert.ToInt32(sqlDataReader["id_pojazdu"]), sqlDataReader["nr_polisy"].ToString(), Convert.ToBoolean(sqlDataReader["w_trasie"]));
+                przyczepaList.Add(przyczepa);
+            }
+            return przyczepaList;
+        }
     }
 }
