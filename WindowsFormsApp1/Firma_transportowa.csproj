@@ -69,6 +69,12 @@
     <Compile Include="CargoPanel.Designer.cs">
       <DependentUpon>CargoPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCar.Designer.cs">
+      <DependentUpon>AddCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <Compile Include="VehiclesPrzyczepaZestawyForm.Designer.cs">
       <DependentUpon>VehiclesPrzyczepaZestawyForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCar.resx">
+      <DependentUpon>AddCar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>

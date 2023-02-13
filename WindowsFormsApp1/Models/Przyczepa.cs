@@ -86,5 +86,27 @@ namespace WindowsFormsApp1.Models
             }
             return przyczepaList;
         }
+        public bool AddPrzyczepa(Przyczepa przyczepa)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            SqlCommand sqlCommand = new SqlCommand("INSERT INTO Przyczepa(nr_rejestracyjny,ładowność,wysokość,długość,id_pojazdu,nr_polisy,w_trasie) VALUES(@nr_rejestracyjny,@ładowność,@wysokość,@długość,@id_pojazdu,@nr_polisy,@w_trasie)", connection.connection);
+            sqlCommand.Parameters.AddWithValue("@nr_rejestracyjny", przyczepa.nr_rejestracyjny);
+            sqlCommand.Parameters.AddWithValue("@ładowność", przyczepa.ładowność);
+            sqlCommand.Parameters.AddWithValue("@wysokość", przyczepa.wysokość);
+            sqlCommand.Parameters.AddWithValue("@długość", przyczepa.długość);
+            sqlCommand.Parameters.AddWithValue("@id_pojazdu", przyczepa.id_pojazdu);
+            sqlCommand.Parameters.AddWithValue("@nr_polisy", przyczepa.nr_polisy);
+            sqlCommand.Parameters.AddWithValue("@w_trasie", przyczepa.w_trasie);
+            int result = sqlCommand.ExecuteNonQuery();
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

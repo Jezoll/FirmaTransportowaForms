@@ -65,5 +65,26 @@ namespace WindowsFormsApp1
             form.Show();
             this.Hide();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Driver driver = new Driver();
+            
+            List<Driver> filtr = new List<Driver>();
+            foreach (Driver item in driver.GetAllDrivers())
+            {
+                if (item.Nazwisko.Contains(textBox1.Text))
+                {
+                    filtr.Add(item);
+                }
+                
+            }
+            dataGridView1.DataSource = filtr;
+        }
     }
 }

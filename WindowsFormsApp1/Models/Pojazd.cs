@@ -94,5 +94,31 @@ namespace WindowsFormsApp1.Models
             }
             return pojazdList;
         }
+        public bool AddPojazd(Pojazd pojazd)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            SqlCommand command = new SqlCommand("INSERT INTO Pojazd VALUES (@marka, @model, @nr_rejestracyjny, @nr_vin, @rok_produkcji, @przebieg, @rodzaj_pojazdu, @emisja_spalin, @nr_polisy, @id_przyczepy, @w_trasie)", connection.connection);
+            command.Parameters.AddWithValue("@marka", pojazd.marka);
+            command.Parameters.AddWithValue("@model", pojazd.model);
+            command.Parameters.AddWithValue("@nr_rejestracyjny", pojazd.nr_rejestracyjny);
+            command.Parameters.AddWithValue("@nr_vin", pojazd.nr_vin);
+            command.Parameters.AddWithValue("@rok_produkcji", pojazd.rok_produkcji);
+            command.Parameters.AddWithValue("@przebieg", pojazd.przebieg);
+            command.Parameters.AddWithValue("@rodzaj_pojazdu", pojazd.rodzaj_pojazdu);
+            command.Parameters.AddWithValue("@emisja_spalin", pojazd.emisja_spalin);
+            command.Parameters.AddWithValue("@nr_polisy", pojazd.nr_polisy);
+            command.Parameters.AddWithValue("@id_przyczepy", pojazd.id_przyczepy);
+            command.Parameters.AddWithValue("@w_trasie", pojazd.w_trasie);
+            int result = command.ExecuteNonQuery();
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

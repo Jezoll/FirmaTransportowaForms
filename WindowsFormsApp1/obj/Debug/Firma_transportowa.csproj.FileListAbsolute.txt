@@ -50,3 +50,4 @@ C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsF
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.UpdateUser.resources
 C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.VehiclesPrzyczepaZestawyForm.resources
+C:\Users\Dawid\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddCar.resources
