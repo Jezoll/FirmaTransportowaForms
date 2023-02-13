@@ -152,5 +152,12 @@ namespace WindowsFormsApp1
 
             }
         }
+
+        private void Dodaj_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddCar addCar = new AddCar();
+            addCar.ShowDialog();
+        }
     }
 }

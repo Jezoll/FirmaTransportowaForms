@@ -150,6 +150,7 @@
             this.Dodaj.TabIndex = 10;
             this.Dodaj.Text = "Dodaj";
             this.Dodaj.UseVisualStyleBackColor = true;
+            this.Dodaj.Click += new System.EventHandler(this.Dodaj_Click);
             // 
             // button8
             // 

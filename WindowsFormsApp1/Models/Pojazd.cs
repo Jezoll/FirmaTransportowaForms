@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.Models
         public string rodzaj_pojazdu { get; set; }
         public string emisja_spalin { get; set; }
         public string nr_polisy { get; set; }
-        public int id_przyczepy { get; set; }
+        public int? id_przyczepy { get; set; }
         public bool w_trasie { get; set; }
         public string przyczepa { get; set; }
 
@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.Models
         {
             
         }
-        public Pojazd(int id_pojazdu, string marka, string model, string nr_rejestracyjny, string nr_vin, DateTime rok_produkcji, int przebieg, string rodzaj_pojazdu, string emisja_spalin, string nr_polisy, int id_przyczepy, bool w_trasie)
+        public Pojazd(int id_pojazdu, string marka, string model, string nr_rejestracyjny, string nr_vin, DateTime rok_produkcji, int przebieg, string rodzaj_pojazdu, string emisja_spalin, string nr_polisy, int? id_przyczepy, bool w_trasie)
         {
             this.id_pojazdu = id_pojazdu;
             this.marka = marka;
@@ -40,16 +40,26 @@ namespace WindowsFormsApp1.Models
             this.nr_polisy = nr_polisy;
             this.id_przyczepy = id_przyczepy;
             this.w_trasie = w_trasie;
-            Connection connection = new Connection();
-            
-            connection.Connect();
-            SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", connection.connection);
-            sqlCommand.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
+
+            if (id_przyczepy == null)
             {
-                this.przyczepa = sqlDataReader["nr_rejestracyjny"].ToString();
+                id_przyczepy = null;
             }
+            else
+            {
+                id_przyczepy = id_przyczepy;
+                Connection connection = new Connection();
+
+                connection.Connect();
+                SqlCommand sqlCommand = new SqlCommand("SELECT nr_rejestracyjny FROM Przyczepa WHERE id_przyczepy = @id_przyczepy", connection.connection);
+                sqlCommand.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    this.przyczepa = sqlDataReader["nr_rejestracyjny"].ToString();
+                }
+            }
+            
         }
 
         public List<Pojazd> GetAllPojazdy()
@@ -89,7 +99,18 @@ namespace WindowsFormsApp1.Models
             List<Pojazd> pojazdList = new List<Pojazd>();
             while (reader.Read())
             {
-                Pojazd pojazd = new Pojazd(Convert.ToInt32(reader["id_pojazdu"]), reader["marka"].ToString(), reader["model"].ToString(), reader["nr_rejestracyjny"].ToString(), reader["nr_vin"].ToString(), Convert.ToDateTime(reader["rok_produkcji"]), Convert.ToInt32(reader["przebieg"]), reader["rodzaj_pojazdu"].ToString(), reader["emisja_spalin"].ToString(), reader["nr_polisy"].ToString(), Convert.ToInt32(reader["id_przyczepy"]), Convert.ToBoolean(reader["w_trasie"]));
+                if (id_przyczepy == null)
+                {
+                    id_przyczepy = null;
+                }
+                else{
+                    id_przyczepy = Convert.ToInt32(reader["id_przyczepy"]);
+                }
+                Pojazd pojazd = new Pojazd(Convert.ToInt32(reader["id_pojazdu"]), reader["marka"].ToString(),
+                    reader["model"].ToString(), reader["nr_rejestracyjny"].ToString(), reader["nr_vin"].ToString(),
+                    Convert.ToDateTime(reader["rok_produkcji"]), Convert.ToInt32(reader["przebieg"]),
+                    reader["rodzaj_pojazdu"].ToString(), reader["emisja_spalin"].ToString(), reader["nr_polisy"].ToString(),
+                    id_przyczepy, Convert.ToBoolean(reader["w_trasie"]));
                 pojazdList.Add(pojazd);
             }
             return pojazdList;

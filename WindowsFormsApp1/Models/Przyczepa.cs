@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.Models
         public int ładowność { get; set; }
         public int wysokość { get; set; }
         public int długość { get; set; }
-        private int id_pojazdu { get; set; }
+        private int? id_pojazdu { get; set; }
         public string nr_polisy { get; set; }
         public bool w_trasie { get; set; }
         public string pojazd { get; set; }
@@ -23,8 +23,25 @@ namespace WindowsFormsApp1.Models
         {
 
         }
-        public Przyczepa(int id_przyczepy, string nr_rejestracyjny, int ładowność, int wysokość, int długość, int id_pojazdu, string nr_polisy, bool w_trasie)
+        public Przyczepa(int id_przyczepy, string nr_rejestracyjny, int ładowność, int wysokość, int długość, int? id_pojazdu, string nr_polisy, bool w_trasie)
         {
+            if(id_pojazdu == null)
+            {
+                id_pojazdu = null;
+            }
+            else
+            {
+                Connection connection = new Connection();
+
+                connection.Connect();
+                SqlCommand sqlCommand = new SqlCommand("SELECT marka,model,nr_rejestracyjny FROM Pojazd WHERE id_pojazdu = @id_pojazdu", connection.connection);
+                sqlCommand.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    this.pojazd = sqlDataReader["marka"] + " " + sqlDataReader["model"] + " " + sqlDataReader["nr_rejestracyjny"].ToString();
+                }
+            }
             this.id_przyczepy = id_przyczepy;
             this.nr_rejestracyjny = nr_rejestracyjny;
             this.ładowność = ładowność;
@@ -33,16 +50,7 @@ namespace WindowsFormsApp1.Models
             this.id_pojazdu = id_pojazdu;
             this.nr_polisy = nr_polisy;
             this.w_trasie = w_trasie;
-            Connection connection = new Connection();
-
-            connection.Connect();
-            SqlCommand sqlCommand = new SqlCommand("SELECT marka,model,nr_rejestracyjny FROM Pojazd WHERE id_pojazdu = @id_pojazdu", connection.connection);
-            sqlCommand.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            while (sqlDataReader.Read())
-            {
-                this.pojazd = sqlDataReader["marka"]+" " + sqlDataReader["model"] +" "+sqlDataReader["nr_rejestracyjny"].ToString();
-            }
+            
         }
         public List<Przyczepa> GetAllPrzyczepy()
         {
@@ -53,7 +61,10 @@ namespace WindowsFormsApp1.Models
             List<Przyczepa> przyczepaList = new List<Przyczepa>();
             while (sqlDataReader.Read())
             {
-                Przyczepa przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(), Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]), Convert.ToInt32(sqlDataReader["długość"]), Convert.ToInt32(sqlDataReader["id_pojazdu"]), sqlDataReader["nr_polisy"].ToString(), Convert.ToBoolean(sqlDataReader["w_trasie"]));
+                Przyczepa przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(),
+                    Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]),
+                    Convert.ToInt32(sqlDataReader["długość"]), (int?)sqlDataReader["id_pojazdu"], sqlDataReader["nr_polisy"].ToString(),
+                    Convert.ToBoolean(sqlDataReader["w_trasie"]));
                 przyczepaList.Add(przyczepa);
             }
             return przyczepaList;
@@ -68,7 +79,20 @@ namespace WindowsFormsApp1.Models
             Przyczepa przyczepa = new Przyczepa();
             while (sqlDataReader.Read())
             {
-                przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(), Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]), Convert.ToInt32(sqlDataReader["długość"]), Convert.ToInt32(sqlDataReader["id_pojazdu"]), sqlDataReader["nr_polisy"].ToString(), Convert.ToBoolean(sqlDataReader["w_trasie"]));
+                //if (id_pojazdu == null)
+                //{
+                //    id_pojazdu = null;
+                //}
+                //else
+                //{
+
+                //    id_pojazdu = Convert.ToInt32(sqlDataReader["id_pojazdu"]);
+
+                //}
+                    przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(),
+                    Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]), 
+                    Convert.ToInt32(sqlDataReader["długość"]), (int?)sqlDataReader["id_pojazdu"], sqlDataReader["nr_polisy"].ToString(),
+                    Convert.ToBoolean(sqlDataReader["w_trasie"]));
             }
             return przyczepa;
         }
@@ -79,9 +103,21 @@ namespace WindowsFormsApp1.Models
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Przyczepa WHERE id_pojazdu IS NULL", connection.connection);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
             List<Przyczepa> przyczepaList = new List<Przyczepa>();
-            while (sqlDataReader.Read())
-            {
-                Przyczepa przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(), Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]), Convert.ToInt32(sqlDataReader["długość"]), Convert.ToInt32(sqlDataReader["id_pojazdu"]), sqlDataReader["nr_polisy"].ToString(), Convert.ToBoolean(sqlDataReader["w_trasie"]));
+            while (sqlDataReader.Read()) { 
+                if (id_pojazdu == null)
+                {
+                    id_pojazdu = null;
+                }
+                else
+                {
+                    id_pojazdu = Convert.ToInt32(sqlDataReader["id_pojazdu"]);
+                }
+                Przyczepa przyczepa = new Przyczepa(Convert.ToInt32(sqlDataReader["id_przyczepy"]), sqlDataReader["nr_rejestracyjny"].ToString(),
+                    Convert.ToInt32(sqlDataReader["ładowność"]), Convert.ToInt32(sqlDataReader["wysokość"]),
+                    Convert.ToInt32(sqlDataReader["długość"]), id_pojazdu, sqlDataReader["nr_polisy"].ToString(),
+                    Convert.ToBoolean(sqlDataReader["w_trasie"]));
+
+
                 przyczepaList.Add(przyczepa);
             }
             return przyczepaList;

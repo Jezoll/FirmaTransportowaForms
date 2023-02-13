@@ -110,6 +110,63 @@ namespace WindowsFormsApp1.Models
             }
 
         }
+        public bool AddTrasa(string miejsce_załadunku, string miejsca_rozładunku, int długość_trasy, int id_klient, int id_kierowcy, int id_pojazdu, int id_ładunku, int id_przyczepy, bool wykonana)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "INSERT INTO Trasa (miejsce_załadunku, miejsca_rozładunku, długość_trasy, id_klient, id_kierowcy, id_pojazdu, id_ładunku, id_przyczepy, wykonana, id_zestaw) VALUES (@miejsce_załadunku, @miejsca_rozładunku, @długość_trasy, @id_klient, @id_kierowcy, @id_pojazdu, @id_ładunku, @id_przyczepy, @wykonana,@id_zestaw)";
+                command.Parameters.AddWithValue("@miejsce_załadunku", miejsce_załadunku);
+                command.Parameters.AddWithValue("@miejsca_rozładunku", miejsca_rozładunku);
+                command.Parameters.AddWithValue("@długość_trasy", długość_trasy);
+                command.Parameters.AddWithValue("@id_klient", id_klient);
+                command.Parameters.AddWithValue("@id_kierowcy", id_kierowcy);
+                command.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
+                command.Parameters.AddWithValue("@id_ładunku", id_ładunku);
+                command.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
+                command.Parameters.AddWithValue("@wykonana", wykonana);
+                var command2 = connection.connection.CreateCommand();
+                command2.CommandText = "SELECT id_zestaw FROM Zestaw WHERE id_pojazdu = @id_pojazdu AND id_przyczepy = @id_przyczepy";
+                command2.ExecuteReader();
+                command.Parameters.AddWithValue("@id_zestaw", command2);
+                command.ExecuteNonQuery();
+                return true;
+            }
+        }
+        public bool DeleteTrasa(int id_trasy)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "DELETE FROM Trasa WHERE id_trasy = @id_trasy";
+                command.Parameters.AddWithValue("@id_trasy", id_trasy);
+                command.ExecuteNonQuery();
+                return true;
+            }
+        }
+        public bool UpdateTrasa(int id_trasy, string miejsce_załadunku, string miejsca_rozładunku, int długość_trasy, int id_klient, int id_kierowcy, int id_pojazdu, int id_ładunku, int id_przyczepy, bool wykonana)
+        {
+            Connection connection = new Connection();
+            connection.Connect();
+            using (var command = connection.connection.CreateCommand())
+            {
+                command.CommandText = "UPDATE Trasa SET miejsce_załadunku = @miejsce_załadunku, miejsca_rozładunku = @miejsca_rozładunku, długość_trasy = @długość_trasy, id_klient = @id_klient, id_kierowcy = @id_kierowcy, id_pojazdu = @id_pojazdu, id_ładunku = @id_ładunku, id_przyczepy = @id_przyczepy, wykonana = @wykonana WHERE id_trasy = @id_trasy";
+                command.Parameters.AddWithValue("@id_trasy", id_trasy);
+                command.Parameters.AddWithValue("@miejsce_załadunku", miejsce_załadunku);
+                command.Parameters.AddWithValue("@miejsca_rozładunku", miejsca_rozładunku);
+                command.Parameters.AddWithValue("@długość_trasy", długość_trasy);
+                command.Parameters.AddWithValue("@id_klient", id_klient);
+                command.Parameters.AddWithValue("@id_kierowcy", id_kierowcy);
+                command.Parameters.AddWithValue("@id_pojazdu", id_pojazdu);
+                command.Parameters.AddWithValue("@id_ładunku", id_ładunku);
+                command.Parameters.AddWithValue("@id_przyczepy", id_przyczepy);
+                command.Parameters.AddWithValue("@wykonana", wykonana);
+                command.ExecuteNonQuery();
+                return true;
+            }
+        }
     }  
     
 }

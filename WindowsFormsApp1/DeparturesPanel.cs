@@ -46,5 +46,10 @@ namespace WindowsFormsApp1
             Menu form1 = new Menu();
             form1.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
