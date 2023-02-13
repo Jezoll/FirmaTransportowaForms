@@ -100,5 +100,10 @@ namespace WindowsFormsApp1
             form1.Show();
             this.Hide();
         }
+
+        private void AddingDriver_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

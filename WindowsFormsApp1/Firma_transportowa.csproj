@@ -57,6 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCargo.Designer.cs">
+      <DependentUpon>AddCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDepartures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDepartures.Designer.cs">
+      <DependentUpon>AddDepartures.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +150,12 @@
     </Compile>
     <EmbeddedResource Include="AddCar.resx">
       <DependentUpon>AddCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCargo.resx">
+      <DependentUpon>AddCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDepartures.resx">
+      <DependentUpon>AddDepartures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>

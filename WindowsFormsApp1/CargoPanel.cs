@@ -60,5 +60,10 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Nie wybrano ładunku do usunięcia");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
